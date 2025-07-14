@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LinkedIn Ghostwriter with Gemini AI
+
+A Next.js application that analyzes your writing style using Google's Gemini AI and generates LinkedIn posts that sound like you.
+
+## Features
+
+- **Style Analysis**: Analyzes your existing LinkedIn posts to understand your unique writing style
+- **AI-Powered Generation**: Uses Google's Gemini AI to generate new posts that match your tone, vocabulary, and style
+- **Customizable**: Fine-tune the generated content by providing specific topics and guidelines
+- **Responsive Design**: Works on both desktop and mobile devices
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js 18+ and npm
+- Google Gemini API key (get it from [Google AI Studio](https://aistudio.google.com/app/apikey))
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Copy the `.env.example` file to `.env.local` and add your Google Gemini API key:
+   ```bash
+   cp .env.example .env.local
+   ```
+   Then edit `.env.local` and add your API key:
+   ```
+   GEMINI_API_KEY=your_google_api_key_here
+   ```
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Usage
 
-## Learn More
+1. Paste some of your existing LinkedIn posts in the text area
+2. Click "Analyze My Style" to analyze your writing style
+3. Enter a topic for your new post and click "Generate Post"
+4. Copy the generated post or regenerate if needed
 
-To learn more about Next.js, take a look at the following resources:
+## How It Works
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Style Analysis**: The application sends your content to Google's Gemini AI to analyze:
+   - Tone (professional, casual, inspirational, etc.)
+   - Writing style (narrative, direct, persuasive, etc.)
+   - Common themes and topics
+   - Sentence structure
+   - Characteristic vocabulary
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Post Generation**: Using the analyzed style, the AI generates new content on your specified topic that matches your unique writing style.
 
-## Deploy on Vercel
+## Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Next.js](https://nextjs.org/) - React framework with App Router
+- [TypeScript](https://www.typescriptlang.org/) - Type checking
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Google Gemini API](https://ai.google.dev/) - AI text generation
+- [Vercel AI SDK](https://sdk.vercel.ai/) - AI utilities
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+You can deploy this application to Vercel with zero configuration:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyourusername%2Flinkedin-ghostwriter&env=GEMINI_API_KEY&envDescription=Google%20Gemini%20API%20key%20from%20https%3A%2F%2Faistudio.google.com%2Fapp%2Fapikey&project-name=linkedin-ghostwriter&repository-name=linkedin-ghostwriter)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
