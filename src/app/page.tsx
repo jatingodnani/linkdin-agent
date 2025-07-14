@@ -162,7 +162,7 @@ export default function Home() {
 
       const data = await response.json();
       setGeneratedPost(data.post);
-      
+
       // Automatically analyze virality of the generated post
       analyzeVirality(data.post);
     } catch (error) {
@@ -384,7 +384,7 @@ export default function Home() {
                   <div className="bg-gray-50 p-8 rounded-xl whitespace-pre-line text-gray-800 leading-relaxed border border-gray-200 text-base">
                     {generatedPost}
                   </div>
-                  
+
                   {/* Virality Score Display */}
                   {isAnalyzingVirality && (
                     <div className="mt-6 bg-blue-50 border border-blue-200 rounded-xl p-6">
@@ -410,11 +410,10 @@ export default function Home() {
                           <h4 className="text-xl font-bold text-gray-900">Virality Score</h4>
                         </div>
                         <div className="ml-auto flex items-center">
-                          <div className={`text-3xl font-bold ${
-                            viralityScore.score >= 8 ? 'text-green-600' :
-                            viralityScore.score >= 6 ? 'text-yellow-600' :
-                            'text-red-600'
-                          }`}>
+                          <div className={`text-3xl font-bold ${viralityScore.score >= 8 ? 'text-green-600' :
+                              viralityScore.score >= 6 ? 'text-yellow-600' :
+                                'text-red-600'
+                            }`}>
                             {viralityScore.score}/10
                           </div>
                           <div className="ml-3 px-3 py-1 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-purple-500 to-pink-500">

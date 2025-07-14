@@ -5,9 +5,22 @@ import { motion } from 'framer-motion';
 
 type EmotionalStyle = 'inspirational' | 'vulnerable' | 'passionate' | 'relatable' | 'motivational' | 'controversial';
 
+type StyleAnalysis = {
+    tone: string;
+    writing_style: string;
+    common_themes: string[];
+    sentence_structure: string;
+    vocabulary: string[];
+    emoji_usage: string;
+    post_length: string;
+    engagement_style: string;
+    hashtag_usage: string;
+    personal_touch: string;
+};
+
 interface EmotionalRewriteProps {
     originalPost: string;
-    originalStyle?: any;
+    originalStyle?: StyleAnalysis;
     onRewrite?: (rewrittenPost: string) => void;
 }
 
@@ -67,8 +80,8 @@ export default function EmotionalRewrite({ originalPost, originalStyle, onRewrit
                                 key={style.value}
                                 onClick={() => setSelectedStyle(style.value)}
                                 className={`p-3 rounded-xl border-2 transition-all duration-200 text-left ${selectedStyle === style.value
-                                        ? 'border-blue-500 bg-blue-50'
-                                        : 'border-gray-200 hover:border-gray-300'
+                                    ? 'border-blue-500 bg-blue-50'
+                                    : 'border-gray-200 hover:border-gray-300'
                                     }`}
                             >
                                 <div className="flex items-center space-x-2 mb-1">
@@ -85,8 +98,8 @@ export default function EmotionalRewrite({ originalPost, originalStyle, onRewrit
                     onClick={handleRewrite}
                     disabled={!originalPost.trim() || isRewriting}
                     className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-200 ${!originalPost.trim() || isRewriting
-                            ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                            : 'bg-gradient-to-r from-purple-600 to-pink-500 text-white hover:from-purple-700 hover:to-pink-600'
+                        ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                        : 'bg-gradient-to-r from-purple-600 to-pink-500 text-white hover:from-purple-700 hover:to-pink-600'
                         }`}
                 >
                     {isRewriting ? (
