@@ -5,8 +5,14 @@ import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { config } from './config';
 
 // Initialize the Google Generative AI client
+const apiKey = config.gemini.apiKey || process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+
+if (!apiKey) {
+  throw new Error('GOOGLE_GENERATIVE_AI_API_KEY environment variable is required');
+}
+
 const google = createGoogleGenerativeAI({
-    apiKey: config.gemini.apiKey
+    apiKey: apiKey
 });
 
 const model = google(config.gemini.model);

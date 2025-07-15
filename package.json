@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:scripts": "tsc -p tsconfig.scripts.json",
+    "save-token": "ts-node scripts/save-token.ts",
+    "autopost": "ts-node scripts/autopost.ts",
+    "schedule-posts": "ts-node scripts/schedule-posts.ts"
   },
   "dependencies": {
     "@ai-sdk/google": "^1.2.22",

@@ -1,7 +1,7 @@
 // Configuration for the LinkedIn Ghostwriter application
 export const config = {
   gemini: {
-    apiKey: process.env.GEMINI_API_KEY!,
+    apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY || '',
     model: 'gemini-1.5-flash'
   },
   app: {
